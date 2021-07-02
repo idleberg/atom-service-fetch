@@ -50,6 +50,12 @@ Install dependencies:
 cd service-fetch && npm install
 ```
 
+Build source:
+
+```bash
+npm run build
+```
+
 ## Usage
 
 *This is an experiment*
