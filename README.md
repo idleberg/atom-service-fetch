@@ -52,7 +52,7 @@ cd service-fetch && npm install
 
 ## Usage
 
-:innocent: *This is an experiment*
+*This is an experiment*
 
 Have you ever thought that your Atom package should perform HTTP requests [using web workers][Web Workers]? Would it be great if you could use the standard [Fetch API][Fetch API] and *something* would handle the web worker part for you?
 
