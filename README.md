@@ -75,9 +75,6 @@ To consume the service in your package, add the following to your `package.json`
 
 Next up, let's create a package:
 
-<details>
-<summary><strong>Example</strong></summary>
-
 ```js
 import { CompositeDisposable, Disposable } from 'atom';
 import crossFetch from 'cross-fetch';
@@ -138,9 +135,13 @@ However, the response object differs from [Fetch API][Fetch API] in several ways
 }
 ```
 
+Again, this is an experiment. I'm looking forward to your [feedback][Discussions] or [bug reports][Issues].
+
 ## License
 
 This work is licensed under the [MIT License](LICENSE)
 
 [Fetch API]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 [Web Workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+[Discussions]: https://github.com/idleberg/atom-service-fetch/discussions
+[Issues]: https://github.com/idleberg/atom-service-fetch/issues
