@@ -116,7 +116,7 @@ export default {
 };
 ```
 
-However, the response object differs from [Fetch API][Fetch API] in several ways:
+Take note that the response object differs from [Fetch API][Fetch API] in several ways:
 
 ```js
 {
