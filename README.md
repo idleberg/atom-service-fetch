@@ -141,7 +141,7 @@ Take note that the response object differs from [Fetch API][Fetch API] in severa
 }
 ```
 
-Again, this is an experiment. I'm looking forward to your [feedback][Discussions] or [bug reports][Issues].
+Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
 ## License
 
