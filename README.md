@@ -141,7 +141,7 @@ Take note that the response object differs from [Fetch API][Fetch API] in severa
 }
 ```
 
-Since the [Response Methods][Response Methods], you will have to specify the correct `Content-Type` in the header options – unless it's JSON, which is the default!.
+Since the [Response Methods][Response Methods], you will have to specify the correct `Content-Type` in the header options – unless it's JSON, which is the default!
 
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
