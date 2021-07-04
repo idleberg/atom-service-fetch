@@ -73,11 +73,19 @@ To consume the service in your package, add the following to your `package.json`
       "0.1.0": "consumeFetch"
     }
   },
-  "dependencies": {
-    "cross-fetch": ">=3 <4"
-  }
+  "package-deps": [
+    {
+      "name": "service-fetch"
+    }
+  ]
 }
 ```
+
+Install `atom-package-deps` to handle the package dependency and any fetch implementation for NodeJS:
+
+**Example**:
+
+`npm install atom-package-deps cross-env`
 
 Next up, let's create a package:
 
