@@ -110,7 +110,7 @@ export default {
     );
   },
 
-  async demoCommand(pathToFile) {
+  async demoCommand() {
     const = await this.fetch('https://atom.io/api/packages', {
       headers: {
         'Content-Type': 'application/json'
