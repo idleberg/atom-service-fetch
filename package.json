@@ -17,7 +17,10 @@
   },
   "keywords": [
     "fetch",
-    "web worker"
+    "http request",
+    "web worker",
+    "web workers",
+    "xmlhttprequest"
   ],
   "repository": {
     "type": "git",
