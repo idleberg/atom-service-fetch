@@ -141,6 +141,8 @@ Take note that the response object differs from [Fetch API][Fetch API] in severa
 }
 ```
 
+Due to the absence of `response.json()`, `response.text()` et cetera, you will have to specify the correct `Content-Type` in the header options (JSON is the default!).
+
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
 ## License
