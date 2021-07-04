@@ -141,7 +141,7 @@ Take note that the response object differs from [Fetch API][Fetch API] in severa
 }
 ```
 
-Due to the absence of `response.json()`, `response.text()` et cetera, you will have to specify the correct `Content-Type` in the header options (JSON is the default!).
+Since the [Response Methods][Response Methods], you will have to specify the correct `Content-Type` in the header options – unless it's JSON, which is the default!.
 
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
@@ -153,3 +153,4 @@ This work is licensed under the [MIT License](LICENSE)
 [Web Workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
 [Discussions]: https://github.com/idleberg/atom-service-fetch/discussions
 [Issues]: https://github.com/idleberg/atom-service-fetch/issues
+[Response Methods]: https://developer.mozilla.org/en-US/docs/Web/API/Response#methods
