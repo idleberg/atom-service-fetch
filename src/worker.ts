@@ -41,6 +41,7 @@ onmessage = async (e: MessageEvent): Promise<void> => {
     ctx.postMessage({
       body: body,
       checksums: await getChecksums(hashPayload),
+      ok: response.ok,
       redirected: response.redirected,
       status: response.status,
       statusText: response.statusText,
