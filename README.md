@@ -130,27 +130,7 @@ export default {
 };
 ```
 
-Take note that the response object differs from [Fetch API][Fetch API] in several ways:
-
-```js
-{
-  "body": [/* omitted */],
-  "checksums": {
-    "md5": "862dec5c27142824a394bc6464928f48",
-    "sha1": "deb6c11e1971aa61dbbcbc76e5ea7553a5bea7b7",
-    "sha256": "0679246d6c4216de0daa08e5523fb2674db2b6599c3b72ff946b488a15290b62",
-    "sha512": "6ba146a01b3ab7b81e81c9ffb30ac81b1bc891db1afcdd4386eb9a5f4a9b02b3ffa6042c914196b0e75ec344b0372cffd3f73188721343bc458f063342ebb98b"
-  },
-  "ok": true,
-  "redirected": false,
-  "status": 200,
-  "statusText": "OK",
-  "timeout": 0,
-  "url": "https://atom.io/api/packages"
-}
-```
-
-Since the [Response Methods][Response Methods] are not included, you will have to specify the correct `Content-Type` in the header options – unless it's JSON, which is the default!
+:warn: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Content-Type` specified in the header options. When omitted, `application/json` will be used.
 
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
