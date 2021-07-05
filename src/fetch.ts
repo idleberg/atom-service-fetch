@@ -1,9 +1,9 @@
-import { resolve } from 'path';
-import Logger from './log';
+import { resolve } from "path";
+import Logger from "./log";
 
-const worker = new Worker(resolve(__dirname, 'fetchWorker.js'));
+const worker = new Worker(resolve(__dirname, "fetchWorker.js"));
 
-type ResponseTypes = 'arrayBuffer' | 'json' | 'text';
+type ResponseTypes = "arrayBuffer" | "json" | "text";
 
 /**
  *
@@ -12,34 +12,38 @@ type ResponseTypes = 'arrayBuffer' | 'json' | 'text';
  * @param {Object} options
  * @returns {*}
  */
-function fetchWrapper(responseType: ResponseTypes, url: RequestInfo, options: RequestInit = {}): Promise<any> {
-    return new Promise(resolve => {
-        if (atom.inDevMode()) console.group(`fetchWorker.${responseType}(): ${url}`);
+function fetchWrapper(
+  responseType: ResponseTypes,
+  url: RequestInfo,
+  options: RequestInit = {}
+): Promise<any> {
+  return new Promise((resolve) => {
+    Logger.log(`Request`, options);
+    worker.postMessage({ responseType, url, options });
 
-        Logger.log(`Request`, options);
-        worker.postMessage({ responseType, url, options });
+    worker.onmessage = (e: MessageEvent) => {
+      Logger.log(`Response`, e.data);
 
-        worker.onmessage = (e: MessageEvent) => {
-            Logger.log(`Response`, e.data);
-            if (atom.inDevMode()) console.groupEnd();
-
-            resolve(e.data);
-        };
-    });
+      resolve(e.data);
+    };
+  });
 }
 
-function Fetch(url: RequestInfo, options: RequestInit = {}): Promise<ArrayBuffer> {
-  const contentType = options?.headers?.['Content-Type'] || null;
+function Fetch(
+  url: RequestInfo,
+  options: RequestInit = {}
+): Promise<ArrayBuffer> {
+  const contentType = options?.headers?.["Content-Type"] || null;
 
-  switch(true) {
-    case contentType === 'application/octet-stream':
-      return fetchWrapper('arrayBuffer', url, options);
+  switch (true) {
+    case contentType === "application/octet-stream":
+      return fetchWrapper("arrayBuffer", url, options);
 
-    case contentType?.startsWith('text/'):
-      return fetchWrapper('text', url, options);
+    case contentType?.startsWith("text/"):
+      return fetchWrapper("text", url, options);
 
     default:
-      return fetchWrapper('json', url, options);
+      return fetchWrapper("json", url, options);
   }
 }
 
