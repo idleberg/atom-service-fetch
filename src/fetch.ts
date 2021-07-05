@@ -1,9 +1,9 @@
-import { resolve } from "path";
-import Logger from "./log";
+import { resolve } from 'path';
+import Logger from './log';
 
-const worker = new Worker(resolve(__dirname, "fetchWorker.js"));
+const worker = new Worker(resolve(__dirname, 'fetchWorker.js'));
 
-type ResponseTypes = "arrayBuffer" | "json" | "text";
+type ResponseTypes = 'arrayBuffer' | 'json' | 'text';
 
 /**
  *
@@ -12,11 +12,7 @@ type ResponseTypes = "arrayBuffer" | "json" | "text";
  * @param {Object} options
  * @returns {*}
  */
-function fetchWrapper(
-  responseType: ResponseTypes,
-  url: RequestInfo,
-  options: RequestInit = {}
-): Promise<any> {
+function fetchWrapper(responseType: ResponseTypes, url: RequestInfo, options: RequestInit = {}): Promise<any> {
   return new Promise((resolve) => {
     Logger.log(`Request ${responseType}`, options);
     worker.postMessage({ responseType, url, options });
@@ -26,27 +22,24 @@ function fetchWrapper(
 
       resolve({
         ...e.data,
-        [responseType]: () => Promise.resolve(e.data[responseType]),
+        [responseType]: () => Promise.resolve(e.data[responseType])
       });
     };
   });
 }
 
-function Fetch(
-  url: RequestInfo,
-  options: RequestInit = {}
-): Promise<ArrayBuffer> {
-  const contentType = options?.headers?.["Content-Type"] || null;
+function Fetch(url: RequestInfo, options: RequestInit = {}): Promise<ArrayBuffer> {
+  const contentType = options?.headers?.['Content-Type'] || null;
 
   switch (true) {
-    case contentType === "application/octet-stream":
-      return fetchWrapper("arrayBuffer", url, options);
+    case contentType === 'application/octet-stream':
+      return fetchWrapper('arrayBuffer', url, options);
 
-    case contentType?.startsWith("text/"):
-      return fetchWrapper("text", url, options);
+    case contentType?.startsWith('text/'):
+      return fetchWrapper('text', url, options);
 
     default:
-      return fetchWrapper("json", url, options);
+      return fetchWrapper('json', url, options);
   }
 }
 

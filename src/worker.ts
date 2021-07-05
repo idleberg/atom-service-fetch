@@ -1,5 +1,5 @@
-import fetch from "cross-fetch";
-import * as hasha from "hash-wasm";
+import fetch from 'cross-fetch';
+import * as hasha from 'hash-wasm';
 
 const ctx: Worker = self as any;
 
@@ -8,7 +8,7 @@ async function getChecksums(payload) {
     md5: null,
     sha1: null,
     sha256: null,
-    sha512: null,
+    sha512: null
   };
 
   await Promise.all(
@@ -28,7 +28,7 @@ async function getChecksums(payload) {
 
 onmessage = async (e: MessageEvent): Promise<void> => {
   if (!e.data.url) {
-    throw Error("Missing URL parameter");
+    throw Error('Missing URL parameter');
   }
 
   const { url, options, responseType } = e.data;
@@ -36,7 +36,7 @@ onmessage = async (e: MessageEvent): Promise<void> => {
   const response = await fetch(url, options);
 
   const body = await response[responseType]();
-  const hashPayload = responseType === "string" ? body : new Uint8Array(body);
+  const hashPayload = responseType === 'string' ? body : new Uint8Array(body);
 
   ctx.postMessage(
     {
@@ -46,8 +46,8 @@ onmessage = async (e: MessageEvent): Promise<void> => {
       redirected: response.redirected,
       status: response.status,
       statusText: response.statusText,
-      timeout: response["timeout"],
-      url: response.url,
+      timeout: response['timeout'],
+      url: response.url
     },
     null
   );
