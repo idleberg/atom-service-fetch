@@ -18,13 +18,16 @@ function fetchWrapper(
   options: RequestInit = {}
 ): Promise<any> {
   return new Promise((resolve) => {
-    Logger.log(`Request`, options);
+    Logger.log(`Request ${responseType}`, options);
     worker.postMessage({ responseType, url, options });
 
     worker.onmessage = (e: MessageEvent) => {
       Logger.log(`Response`, e.data);
 
-      resolve(e.data);
+      resolve({
+        ...e.data,
+        [responseType]: () => Promise.resolve(e.data[responseType]),
+      });
     };
   });
 }
