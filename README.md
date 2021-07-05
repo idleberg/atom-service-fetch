@@ -130,7 +130,7 @@ export default {
 };
 ```
 
-:warn: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Content-Type` specified in the header options. When omitted, `application/json` will be used.
+:warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Content-Type` specified in the header options. When omitted, `application/json` will be used.
 
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
