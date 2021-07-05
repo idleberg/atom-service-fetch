@@ -141,6 +141,7 @@ Take note that the response object differs from [Fetch API][Fetch API] in severa
     "sha256": "0679246d6c4216de0daa08e5523fb2674db2b6599c3b72ff946b488a15290b62",
     "sha512": "6ba146a01b3ab7b81e81c9ffb30ac81b1bc891db1afcdd4386eb9a5f4a9b02b3ffa6042c914196b0e75ec344b0372cffd3f73188721343bc458f063342ebb98b"
   },
+  "ok": true,
   "redirected": false,
   "status": 200,
   "statusText": "OK",
