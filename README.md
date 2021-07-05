@@ -138,7 +138,7 @@ Content Type               | Response Method
 `application/octet-stream` | `response.arrayBuffer()`
 `text/*`                   | `response.text()`
 
-When omitted, `application/json` will be used as default.
+When the `Content-Type` is omitted, `application/json` will be used as default.
 
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
