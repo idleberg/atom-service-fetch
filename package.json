@@ -8,7 +8,7 @@
   "scripts": {
     "build": "node ./tools/build.mjs",
     "clean": "rimraf ./lib",
-    "dev": "npm run start",
+    "format": "prettier ./src/**/*.ts --write",
     "lint:ts": "eslint ./src --ignore-path .gitignore",
     "lint": "npm-run-all lint:*",
     "prepublishOnly": "npm run clean && npm run build",
