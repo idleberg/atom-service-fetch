@@ -132,6 +132,12 @@ export default {
 
 :warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Content-Type` specified in the header options. When omitted, `application/json` will be used as default.
 
+Content Type               | Response Method
+---------------------------|----------------------------
+`application/json`         | `response.json()`
+`application/octet-stream` | `response.arrayBuffer()`
+`text/*`                   | `response.text()`
+
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
 ## License
