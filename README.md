@@ -125,7 +125,7 @@ export default {
       }
     });
 
-    console.log(response);
+    console.log(await response.json());
   }
 };
 ```
