@@ -42,7 +42,7 @@
     "service-fetch": {
       "description": "Provides the fetch API through a web worker",
       "versions": {
-        "0.1.0": "provideFetch"
+        "0.2.0": "provideFetch"
       }
     }
   },

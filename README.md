@@ -70,7 +70,7 @@ To consume the service in your package, add the following to your `package.json`
 "consumedServices": {
   "service-fetch": {
     "versions": {
-      "0.1.0": "consumeFetch"
+      "0.2.0": "consumeFetch"
     }
   },
   "package-deps": [
