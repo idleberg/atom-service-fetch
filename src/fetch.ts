@@ -3,7 +3,7 @@ import Logger from './log';
 
 const worker = new Worker(resolve(__dirname, 'fetchWorker.js'));
 
-type ResponseTypes = 'arrayBuffer' | 'json' | 'text';
+type ResponseTypes = 'arrayBuffer' | 'formData' | 'json' | 'text';
 
 /**
  *
@@ -12,7 +12,7 @@ type ResponseTypes = 'arrayBuffer' | 'json' | 'text';
  * @param {Object} options
  * @returns {*}
  */
-function fetchWrapper(responseType: ResponseTypes, url: RequestInfo, options: RequestInit = {}): Promise<any> {
+function fetchMessenger(responseType: ResponseTypes, url: RequestInfo, options: RequestInit = {}): Promise<any> {
   return new Promise((resolve) => {
     Logger.log(`Request ${responseType}`, options);
     worker.postMessage({ responseType, url, options });
@@ -28,18 +28,24 @@ function fetchWrapper(responseType: ResponseTypes, url: RequestInfo, options: Re
   });
 }
 
-function Fetch(url: RequestInfo, options: RequestInit = {}): Promise<ArrayBuffer> {
-  const contentType = options?.headers?.['Content-Type'] || null;
+async function Fetch(url: RequestInfo, options: RequestInit = {}): Promise<Response> {
+  const acceptHeader = options?.headers?.['Accept'] || null;
 
   switch (true) {
-    case contentType === 'application/octet-stream':
-      return fetchWrapper('arrayBuffer', url, options);
+    case acceptHeader === 'application/json':
+      return await fetchMessenger('json', url, options);
 
-    case contentType?.startsWith('text/'):
-      return fetchWrapper('text', url, options);
+    case acceptHeader === 'application/octet-stream':
+      return await fetchMessenger('arrayBuffer', url, options);
+
+    case acceptHeader === 'multipart/form-data':
+      return await fetchMessenger('formData', url, options);
+
+    case acceptHeader?.startsWith('text/'):
+      return await fetchMessenger('text', url, options);
 
     default:
-      return fetchWrapper('json', url, options);
+      throw Error('The Accept header is required to mock the Fetch API Response');
   }
 }
 
