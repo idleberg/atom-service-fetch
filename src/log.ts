@@ -1,8 +1,8 @@
-import meta from '../package.json';
+import { name } from '../package.json';
 import DeveloperConsole from '@atxm/developer-console';
 
 export default new DeveloperConsole({
-  name: meta.name,
+  name: name,
   backgroundColor: 'black',
   color: 'gold'
 });
