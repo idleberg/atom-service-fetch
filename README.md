@@ -85,7 +85,7 @@ Install `atom-package-deps` to handle the package dependency and any fetch imple
 
 **Example**:
 
-`npm install atom-package-deps cross-env`
+`npm install atom-package-deps cross-fetch`
 
 Next up, let's create a package:
 
