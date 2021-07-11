@@ -19,7 +19,7 @@ build({
   entryPoints: [
     'src/worker.ts'
   ],
-  outfile: 'lib/fetchWorker.js',
+  outfile: 'lib/fetch.worker.js',
   watch: process.env.ESBUILD_WATCH && {
     onRebuild(error) {
       if (error) {

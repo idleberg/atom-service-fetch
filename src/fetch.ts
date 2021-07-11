@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import Logger from './log';
 
-const worker = new Worker(resolve(__dirname, 'fetchWorker.js'));
+const worker = new Worker(resolve(__dirname, 'fetch.worker.js'));
 
 type ResponseTypes = 'arrayBuffer' | 'formData' | 'json' | 'text';
 
