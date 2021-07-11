@@ -119,7 +119,7 @@ export default {
   },
 
   async demoCommand() {
-    const = await this.fetch('https://atom.io/api/packages', {
+    const response = await this.fetch('https://atom.io/api/packages', {
       headers: {
         'Content-Type': 'application/json'
       }
