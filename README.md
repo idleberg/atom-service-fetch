@@ -47,13 +47,13 @@ $ git clone https://github.com/idleberg/atom-service-fetch service-fetch
 Install dependencies:
 
 ```bash
-cd service-fetch && npm install
+$ cd service-fetch && npm install
 ```
 
 Build source:
 
 ```bash
-npm run build
+$ npm run build
 ```
 
 ## Usage
