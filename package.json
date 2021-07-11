@@ -6,12 +6,12 @@
   "main": "./lib/main.js",
   "typings": "./types",
   "scripts": {
-    "build": "node ./tools/build.mjs",
+    "build": "npm run clean && node ./tools/build.mjs",
     "clean": "rimraf ./lib",
     "format": "prettier ./src/**/*.ts --write",
     "lint:ts": "eslint ./src --ignore-path .gitignore",
     "lint": "npm-run-all lint:*",
-    "prepublishOnly": "npm run clean && npm run build",
+    "prepublishOnly": "npm run build",
     "start": "cross-env ESBUILD_WATCH=true node ./tools/build.mjs",
     "test": "echo 'Skipping, no tests specified';exit 0;"
   },
