@@ -132,7 +132,7 @@ export default {
 
 :warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Accept` specified in the header options.
 
-Content Type               | Response Method
+Accept                     | Response Method
 ---------------------------|----------------------------
 `application/json`         | `response.json()`
 `application/octet-stream` | `response.arrayBuffer()`
