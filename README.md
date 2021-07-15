@@ -121,7 +121,7 @@ export default {
   async demoCommand() {
     const response = await this.fetch('https://atom.io/api/packages', {
       headers: {
-        'Content-Type': 'application/json'
+        'Accept': 'application/json'
       }
     });
 
@@ -130,7 +130,7 @@ export default {
 };
 ```
 
-:warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Content-Type` specified in the header options.
+:warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Accept` specified in the header options.
 
 Content Type               | Response Method
 ---------------------------|----------------------------
@@ -138,7 +138,7 @@ Content Type               | Response Method
 `application/octet-stream` | `response.arrayBuffer()`
 `text/*`                   | `response.text()`
 
-When the `Content-Type` is omitted, `application/json` will be used as default.
+When the `Accept` is omitted, `application/json` will be used as default.
 
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
