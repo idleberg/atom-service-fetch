@@ -13,17 +13,21 @@ type ResponseTypes = 'arrayBuffer' | 'formData' | 'json' | 'text';
  * @returns {*}
  */
 function fetchMessenger(responseType: ResponseTypes, url: RequestInfo, options: RequestInit = {}): Promise<any> {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     Logger.log(`Request ${responseType}`, options);
     worker.postMessage({ responseType, url, options });
 
     worker.onmessage = (e: MessageEvent) => {
       Logger.log(`Response`, e.data);
 
-      resolve({
-        ...e.data,
-        [responseType]: () => Promise.resolve(e.data[responseType])
-      });
+      if (e.data.ok) {
+        resolve({
+          ...e.data,
+          [responseType]: () => Promise.resolve(e.data[responseType])
+        });
+      } else {
+        reject(e.data);
+      }
     };
   });
 }
@@ -45,7 +49,7 @@ async function Fetch(url: RequestInfo, options: RequestInit = {}): Promise<Respo
       return await fetchMessenger('text', url, options);
 
     default:
-      throw Error('The Accept header is required to mock the Fetch API Response');
+      throw Error('Requires a supported Accept header is required to mock the Fetch API Response');
   }
 }
 

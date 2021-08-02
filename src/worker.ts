@@ -33,9 +33,18 @@ onmessage = async (e: MessageEvent): Promise<void> => {
 
   const { url, options, responseType } = e.data;
 
-  const response = await fetch(url, options);
+  let body, response;
 
-  const body = await response[responseType]();
+  try {
+    response = await fetch(url, options);
+
+    body = await response[responseType]();
+  } catch (err) {
+    ctx.postMessage({ ok: false, message: err }, null);
+
+    return;
+  }
+
   const hashPayload = responseType === 'string' ? body : new Uint8Array(body);
 
   ctx.postMessage(
