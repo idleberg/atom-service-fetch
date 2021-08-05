@@ -130,12 +130,13 @@ export default {
 };
 ```
 
-:warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Accept` header.
+:warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Accept` header:
 
 Accept                     | Response Method
 ---------------------------|----------------------------
 `application/json`         | `response.json()`
 `application/octet-stream` | `response.arrayBuffer()`
+`multipart/form-data`     | `response.formData()`
 `text/*`                   | `response.text()`
 
 When the `Accept` is omitted, `application/json` will be used as default.
