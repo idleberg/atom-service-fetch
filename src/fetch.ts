@@ -33,7 +33,7 @@ function fetchMessenger(responseType: ResponseTypes, url: RequestInfo, options: 
 }
 
 async function Fetch(url: RequestInfo, options: RequestInit = {}): Promise<Response> {
-  const acceptHeader = options?.headers?.['Accept'] || null;
+  const acceptHeader = options?.headers?.['Accept'] || 'application/json';
 
   switch (true) {
     case acceptHeader === 'application/json':
