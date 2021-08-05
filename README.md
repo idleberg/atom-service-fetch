@@ -72,13 +72,13 @@ To consume the service in your package, add the following to your `package.json`
     "versions": {
       "0.2.0": "consumeFetch"
     }
-  },
-  "package-deps": [
-    {
-      "name": "service-fetch"
-    }
-  ]
-}
+  }
+},
+"package-deps": [
+  {
+    "name": "service-fetch"
+  }
+]
 ```
 
 Install `atom-package-deps` to handle the package dependency and any fetch implementation for NodeJS as a fallback for when the service is unavailable:
