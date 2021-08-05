@@ -139,7 +139,7 @@ Accept                     | Response Method
 `multipart/form-data`     | `response.formData()`
 `text/*`                   | `response.text()`
 
-When the `Accept` is omitted, `application/json` will be used as default.
+When no `Accept` header has been specified, `application/json` will be used as default.
 
 Again, this is an experiment. I'm not sure where this is going, but I'm looking forward to your [feedback][Discussions]!
 
