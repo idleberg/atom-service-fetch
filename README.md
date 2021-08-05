@@ -130,7 +130,7 @@ export default {
 };
 ```
 
-:warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Accept` specified in the header options.
+:warning: Due to the limitations of event messages, the response only contains the [method][Response Methods] matching the `Accept` header.
 
 Accept                     | Response Method
 ---------------------------|----------------------------
