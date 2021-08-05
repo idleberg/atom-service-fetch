@@ -5,7 +5,7 @@
 [![apm](https://flat.badgen.net/apm/license/service-fetch)](https://atom.io/packages/service-fetch)
 [![apm](https://flat.badgen.net/apm/v/service-fetch)](https://atom.io/packages/service-fetch)
 [![apm](https://flat.badgen.net/apm/dl/service-fetch)](https://atom.io/packages/service-fetch)
-[![CircleCI](https://flat.badgen.net/circleci/github/idleberg/atom-service-fetch)](https://circleci.com/gh/idleberg/atom-service-fetch)
+[![CI](https://img.shields.io/github/workflow/status/idleberg/atom-auto-update-plus/CI?style=flat-square)](https://github.com/idleberg/atom-auto-update-plus/actions)
 [![David](https://flat.badgen.net/david/dep/idleberg/atom-service-fetch)](https://david-dm.org/idleberg/atom-service-fetch)
 
 ## Installation
