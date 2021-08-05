@@ -112,7 +112,7 @@ export default {
 
     this.subscriptions.add(
       atom.commands.add('atom-workspace', {
-        "my-package:fetch-data": async () =>
+        "my-package:fetch-demo": async () =>
           await this.demoCommand(),
       })
     );
