@@ -1,4 +1,5 @@
 import { resolve } from 'path';
+import { v4 as UUIDv4 } from 'uuid';
 import Logger from './log';
 
 const worker = new Worker(resolve(__dirname, 'fetch.worker.js'));
@@ -14,11 +15,16 @@ type ResponseTypes = 'arrayBuffer' | 'formData' | 'json' | 'text';
  */
 function fetchMessenger(responseType: ResponseTypes, url: RequestInfo, options: RequestInit = {}): Promise<any> {
   return new Promise((resolve, reject) => {
-    Logger.log(`Request ${responseType}`, options);
-    worker.postMessage({ responseType, url, options });
+    const senderID = UUIDv4();
+    const shortID = senderID.substr(0, 8);
+
+    Logger.log(`${shortID}: Request`, { options, senderID, url });
+    worker.postMessage({ responseType, url, options, senderID });
 
     worker.onmessage = (e: MessageEvent) => {
-      Logger.log(`Response`, e.data);
+      if (senderID !== e.data.recipientID) return;
+
+      Logger.log(`${shortID}: Response`, e.data);
 
       if (e.data.ok) {
         resolve({

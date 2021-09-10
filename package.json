@@ -83,5 +83,8 @@
   "volta": {
     "node": "14.17.1",
     "yarn": "1.22.10"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
   }
 }

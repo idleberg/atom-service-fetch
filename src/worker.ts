@@ -31,7 +31,7 @@ onmessage = async (e: MessageEvent): Promise<void> => {
     throw Error('Missing URL parameter');
   }
 
-  const { url, options, responseType } = e.data;
+  const { url, options, responseType, senderID } = e.data;
 
   let body, response;
 
@@ -52,6 +52,7 @@ onmessage = async (e: MessageEvent): Promise<void> => {
       [responseType]: body,
       checksums: await getChecksums(hashPayload),
       ok: response.ok,
+      recipientID: senderID,
       redirected: response.redirected,
       status: response.status,
       statusText: response.statusText,
