@@ -81,7 +81,7 @@ To consume the service in your package, add the following to your `package.json`
 ]
 ```
 
-Install [`atom-package-deps`](https://www.google.com/search?q=atom-package-deps) to handle the package dependency and any fetch implementation for NodeJS as a fallback for when the service is unavailable:
+Install [`atom-package-deps`](https://www.npmjs.com/package/atom-package-deps) to handle the package dependency and any fetch implementation for NodeJS as a fallback for when the service is unavailable:
 
 **Example**:
 
