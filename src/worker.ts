@@ -40,25 +40,22 @@ onmessage = async (e: MessageEvent): Promise<void> => {
 
     body = await response[responseType]();
   } catch (err) {
-    ctx.postMessage({ ok: false, message: err }, null);
+    ctx.postMessage({ ok: false, message: err });
 
     return;
   }
 
   const hashPayload = responseType === 'string' ? body : new Uint8Array(body);
 
-  ctx.postMessage(
-    {
-      [responseType]: body,
-      checksums: await getChecksums(hashPayload),
-      ok: response.ok,
-      recipientID: senderID,
-      redirected: response.redirected,
-      status: response.status,
-      statusText: response.statusText,
-      timeout: response['timeout'],
-      url: response.url
-    },
-    null
-  );
+  ctx.postMessage({
+    [responseType]: body,
+    checksums: await getChecksums(hashPayload),
+    ok: response.ok,
+    recipientID: senderID,
+    redirected: response.redirected,
+    status: response.status,
+    statusText: response.statusText,
+    timeout: response['timeout'],
+    url: response.url
+  });
 };
