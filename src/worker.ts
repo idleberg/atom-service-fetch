@@ -36,7 +36,13 @@ onmessage = async (e: MessageEvent): Promise<void> => {
   let body, response;
 
   try {
-    response = await fetch(url, options);
+    response = await fetch(url, {
+      ...options,
+      headers: {
+        ...options.headers,
+        'User-Agent': navigator.userAgent
+      }
+    });
 
     body = await response[responseType]();
   } catch (err) {
