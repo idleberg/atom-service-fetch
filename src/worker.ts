@@ -17,7 +17,9 @@ async function getChecksums(payload) {
 
       try {
         checksum = await hasha[algorithm](payload);
-      } catch (e) {}
+      } catch (error) {
+        console.error(error instanceof Error ? error.message : error);
+      }
 
       output[algorithm] = checksum;
     })
@@ -28,7 +30,7 @@ async function getChecksums(payload) {
 
 onmessage = async (e: MessageEvent): Promise<void> => {
   if (!e.data.url) {
-    throw Error('Missing URL parameter');
+    throw new Error('Missing URL parameter');
   }
 
   const { url, options, responseType, senderID } = e.data;

@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@atxm/developer-console": "^0.6.0",
+    "@stylelint/remark-preset": "^5.1.1",
     "@types/atom": "^1.40.11",
     "@types/node": "^14",
     "cron-parser": "^3.5.0",

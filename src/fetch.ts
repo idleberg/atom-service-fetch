@@ -55,7 +55,7 @@ async function Fetch(url: RequestInfo, options: RequestInit = {}): Promise<Respo
       return await fetchMessenger('text', url, options);
 
     default:
-      throw Error('Requires a supported Accept header is required to mock the Fetch API Response');
+      throw new Error('Requires a supported Accept header is required to mock the Fetch API Response');
   }
 }
 
