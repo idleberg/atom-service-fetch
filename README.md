@@ -9,7 +9,7 @@
 
 ## Installation
 
-### apm
+### Package Manager
 
 Install `service-fetch` from the editor's [Package Manager](http://flight-manual.atom-editor.cc/using-atom/sections/atom-packages/) or the command-line equivalent:
 
