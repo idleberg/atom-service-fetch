@@ -6,15 +6,15 @@
   "main": "./lib/main.js",
   "typings": "./types",
   "scripts": {
-    "build": "npm run clean && node ./tools/build.mjs",
-    "clean": "rimraf ./lib",
-    "format": "prettier ./src/**/*.ts --write",
-    "lint:ts": "eslint ./src --ignore-path .gitignore",
+    "build": "tsup",
+    "dev": "npm run build -- --watch",
+    "lint:md": "remark . --quiet --frail --ignore-path .gitignore",
+    "lint:ts": "eslint ./src --ignore-pattern .gitignore --no-warn-ignored",
     "lint": "npm-run-all lint:*",
     "prepublishOnly": "npm run build",
-    "start": "cross-env ESBUILD_WATCH=true node ./tools/build.mjs",
-    "test": "echo 'Skipping, no tests specified';exit 0;",
-    "prepare": "husky install"
+    "start": "npm run dev",
+    "test": "npm run lint",
+    "prepare": "husky"
   },
   "keywords": [
     "fetch",
@@ -48,26 +48,26 @@
     }
   },
   "devDependencies": {
-    "@atxm/developer-console": "^0.5.0",
-    "@types/atom": "^1.40.5",
-    "@types/node": "^16",
-    "@typescript-eslint/eslint-plugin": "^5.19.0",
-    "@typescript-eslint/parser": "^5.19.0",
+    "@atxm/developer-console": "^0.6.0",
+    "@types/atom": "^1.40.11",
+    "@types/node": "^14",
     "cron-parser": "^3.5.0",
-    "cross-env": "^7.0.3",
     "cross-fetch": "^3.1.5",
-    "esbuild": "^0.14.36",
-    "eslint": "^8.13.0",
-    "eslint-plugin-json": "^3.1.0",
+    "eslint": "^9.11.0",
+    "eslint-plugin-jsonc": "^2.16.0",
+    "eslint-plugin-unicorn": "^55.0.0",
     "hash-wasm": "^4.8.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.3.7",
-    "log-symbols": "^5.1.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.2",
-    "source-map-explorer": "^2.5.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "log-symbols": "^5.0.0",
+    "npm-run-all2": "^6.2.3",
+    "prettier": "^3",
+    "remark-cli": "^12",
     "tslib": "^2.3.1",
-    "typescript": "^4.6.3"
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.6.0",
+    "uuid": "^8.3.2"
   },
   "remarkConfig": {
     "plugins": [
@@ -79,12 +79,5 @@
       "eslint --cache --fix",
       "prettier --write"
     ]
-  },
-  "volta": {
-    "node": "14.17.1",
-    "yarn": "1.22.10"
-  },
-  "dependencies": {
-    "uuid": "^8.3.2"
   }
 }
