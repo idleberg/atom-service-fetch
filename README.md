@@ -2,11 +2,10 @@
 
 > Provides the fetch API through a web worker
 
-[![apm](https://flat.badgen.net/apm/license/service-fetch)](https://atom.io/packages/service-fetch)
-[![apm](https://flat.badgen.net/apm/v/service-fetch)](https://atom.io/packages/service-fetch)
-[![apm](https://flat.badgen.net/apm/dl/service-fetch)](https://atom.io/packages/service-fetch)
-[![CI](https://img.shields.io/github/workflow/status/idleberg/atom-service-fetch/CI?style=flat-square)](https://github.com/idleberg/atom-service-fetch/actions)
-[![David](https://flat.badgen.net/david/dep/idleberg/atom-service-fetch)](https://david-dm.org/idleberg/atom-service-fetch)
+[![License](https://img.shields.io/github/license/idleberg/atom-service-fetch?color=blue&style=for-the-badge)](https://github.com/idleberg/atom-service-fetch/blob/master/LICENSE)
+[![Release](https://img.shields.io/github/v/release/idleberg/atom-service-fetch?style=for-the-badge)](https://github.com/idleberg/atom-service-fetch/releases)
+[![Downloads](https://img.shields.io/pulsar/dt/service-fetch?style=for-the-badge&color=slateblue)](https://web.pulsar-edit.dev/packages/service-fetch)
+[![CI](https://img.shields.io/github/actions/workflow/status/idleberg/atom-service-fetch/default.yml?style=for-the-badge)](https://github.com/idleberg/atom-service-fetch/actions)
 
 ## Installation
 
