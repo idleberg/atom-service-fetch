@@ -11,13 +11,13 @@
 
 ### apm
 
-Install `service-fetch` from Atom [install view](atom://settings-view/show-package?package=service-fetch) or use the command-line equivalent:
+Install `service-fetch` from the editor's [Package Manager](http://flight-manual.atom-editor.cc/using-atom/sections/atom-packages/) or the command-line equivalent:
 
-`$ apm install service-fetch`
+`$ ppm install service-fetch || apm install service-fetch`
 
 ### Using Git
 
-Change to your Atom packages directory:
+Change to your packages directory:
 
 **Windows**
 
@@ -46,13 +46,14 @@ $ git clone https://github.com/idleberg/atom-service-fetch service-fetch
 Install dependencies:
 
 ```bash
-$ cd service-fetch && npm install
+$ cd service-fetch
+$ ppm install || apm install
 ```
 
 Build source:
 
 ```bash
-$ npm run build
+$ ppm run build || apm run build
 ```
 
 ## Usage
