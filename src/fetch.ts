@@ -18,13 +18,13 @@ function fetchMessenger(responseType: ResponseTypes, url: RequestInfo, options: 
     const senderID = UUIDv4();
     const shortID = senderID.substr(0, 8);
 
-    Logger.log(`Request ID ${shortID}:`, { options, senderID, url });
+    Logger.log(`Request id.${shortID}:`, { options, senderID, url });
     worker.postMessage({ responseType, url, options, senderID });
 
     worker.onmessage = (e: MessageEvent) => {
       if (senderID !== e.data.recipientID) return;
 
-      Logger.log(`Response ID ${shortID}:`, e.data);
+      Logger.log(`Response id.${shortID}:`, e.data);
 
       if (e.data.ok) {
         resolve({
