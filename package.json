@@ -1,6 +1,6 @@
 {
   "name": "service-fetch",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Provides the fetch API through a web worker",
   "private": false,
   "main": "./lib/main.js",
