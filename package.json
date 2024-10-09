@@ -3,7 +3,7 @@
   "version": "0.3.7",
   "description": "Provides the fetch API through a web worker",
   "private": false,
-  "main": "./lib/index.js",
+  "main": "./lib/main.js",
   "typings": "./types",
   "scripts": {
     "build": "tsup",

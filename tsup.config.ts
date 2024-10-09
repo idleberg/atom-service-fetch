@@ -3,7 +3,10 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   bundle: true,
   clean: true,
-  entry: ['src/index.ts'],
+  entry: {
+    main: 'src/index.ts',
+    'fetch.worker': 'src/worker.ts'
+  },
   external: [
     // Atom
     'atom',
