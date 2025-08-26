@@ -62,7 +62,7 @@ $ ppm run build || apm run build
 
 Have you ever thought that your Atom package should perform HTTP requests [using web workers][Web Workers]? Would it be great if you could use the standard [Fetch API][Fetch API] and *something* would handle the web worker part for you?
 
-This package is service provider that aims to achieve that. You use a common interface, the services handles the rest. Let's take a look at this through an example implementation.
+This package is service provider that aims to achieve that. You use a common interface, the service handles the rest. Let's take a look at this through an example implementation.
 
 To consume the service in your package, add the following to your `package.json`:
 
